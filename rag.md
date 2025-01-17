@@ -21,3 +21,18 @@ Retrieval is the process to find the most relevant passages from the indexed cor
 
 ### 3. Generation ###
 Finally the generation step takes retrieved context data and input question. With this information it generates the answer prompting the LLM. 
+
+
+## RAG Concepts ##
+There are several variants of RAG improvements that have been proposed, each with its own strengths and weaknesses. Some of the most popular variants include:
+- Query transformation, Examples: [Trafo #1](src/rag_01.ipynb), [Trafo #2](src/rag_02.ipynb) 
+  - Multi-Query: Rephrase input query into multiple variants.
+  - Document fusion: Reorder multiple documents based on their retrieval rank (reciprocal rank).
+  - Decomposition: Decompose query in sub-steps similar to Chain-of-Thought (CoT) and query after each answer with new information.
+  - Query abstraction (Step back): Generate higher-level LLM prompt with the input question.
+  - HyDE (Hypothethical document embeddings): Generate hypothetical documents based on the input question in our vector store.
+
+- Routing [Routing examples](src/rag_02.ipynb)
+  - Structured output (e.g. JSON, Pydantic) for routing types
+  - Semantic routing: Use semantic similarity to route the query to the correct model/with correct prompt template.
+  

@@ -36,3 +36,28 @@ There are several variants of RAG improvements that have been proposed, each wit
   - Structured output (e.g. JSON, Pydantic) for routing types
   - Semantic routing: Use semantic similarity to route the query to the correct model/with correct prompt template.
   
+- Query construction [Query construction examples](src/rag_03.ipynb):
+  - Meta data: Use meta data in queries to improve retrieval.
+  - Make structured LLM outputs with Pydantic to constrict filters for documents/vector DBs.
+
+- Indexing:
+  - Use of multi-embeddings indexing for retreval (e.g. summarie + documents).
+  - Multi-modal Rag:
+    - Use Image+Text embeddings like CLIP and similarity search.
+    - VLMs to generate image summaries. Embed those summaries with text and pass to LLM. No images in store.
+    - VLMs to generate image summaries. Embed summaries. Pass raw image + summaries to VLM.
+  - RAPTOR - Build a document tree:
+    - Embed documents -> Cluster documents -> Summarize clusters contents -> Redo until converge to a root.
+    - Index the clusters and perform retrieval on both all documents + clusters.
+    - Helps to retrieve hierarchical information (sub-topics etc.)
+  - ColBERT: Use of BERT for efficient retrieval by creating query token <-> document token relations.
+
+- Retrieval:
+  - Re-rank of documents importances using services like Cohere
+  - Self-improving RAG:
+    - Corrective RAG (CRAG): Reasoning over results and iterative improvement. LangGraph.
+    - Self-RAG: Reiterate over the same question with new information.
+
+
+
+

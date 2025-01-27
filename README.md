@@ -1,5 +1,5 @@
 # RAG - Retrieval augmented generation #
-This deep dive in to RAG is based on lang-chains [rag_from_scratch](https://github.com/langchain-ai/rag-from-scratch)
+This deep dive into RAG is based on lang-chains [rag_from_scratch](https://github.com/langchain-ai/rag-from-scratch)
 
 ## What is RAG? ##
 RAG is a model that combines retrieval and generation in a single model. It is based on the idea of using a retriever to retrieve relevant passages from a large corpus and then using a generator to generate the answer based on the retrieved passages. The retriever is used to narrow down the search space and provide relevant context to the generator, which can then generate more accurate and coherent answers.
@@ -13,7 +13,6 @@ The first step in using RAG is to index the corpus of documents that will be use
 
 - Numerical representation of the text:
   - **Splitting**: The documents is split into smaller units to satisfy context windows.
-  - 
 
 ### 2. Retrieval ###
 Retrieval is the process to find the most relevant passages from the indexed corpus based on the input query. The retriever uses a search engine to search the indexed corpus and retrieve the most relevant passages based on the input query. This typically is using some kind of similarity search of embeddings.
@@ -58,6 +57,41 @@ There are several variants of RAG improvements that have been proposed, each wit
     - Corrective RAG (CRAG): Reasoning over results and iterative improvement. LangGraph.
     - Self-RAG: Reiterate over the same question with new information.
 
+## Poem system ##
+Uses example poems as input in a given language and dialect and generates a new poem in the same language and dialect. The system uses a RAG model to retrieve relevant poems from a large corpus and then generate a new poem based on the retrieved poems. The system is designed to be used as a creative writing tool for poets and writers who want to explore new ideas and styles in their writing.
 
+### Example ###
+#### Input prompt:
+```
+Schreibe eine lustige Story über Max&Moritz die am Sonntag den Wecker verschlafen haben, weil ihr Hund diesen gegessen hat.
+Schreibe 12 Sätze mit Pointe am Ende.
+```
 
+#### Result:
+```
+Am Sonndagmorga, oh weh, oh Graus,
+Max und Moritz, die zwei Lausbua im Haus.
+Der Wecker klingelt, doch sie schlafet fest,
+ihr Hund hat ihn gefressa, des war der Test.
+
+Die Sonne lacht, der Tag isch schön,
+doch die zwei Lausbua, die stehet dumm da und sehn.
+Der Wecker fehlt, er ist verschwunda,
+ihr Hund hat ihn gefressa, des war die Stunda.
+
+Max und Moritz, die schauet sich an,
+der Hund hat den Wecker gefressa, des isch dr Plan.
+Sie lachet und lachet, was soll ma jetzt mache,
+ohne Wecker sind sie verlore, des isch die Sache.
+
+Doch dann fällt es ihnen ein, die Idee ist da,
+sie rufet den Nachbar, der hat noch a Wecker parat.
+Mit einem Lachen und einem Scherz,
+geht der Tag weiter, ohne Schmerz.
+
+Max und Moritz, die Lausbua so fein,
+am Sonntagmorga, sie schlafet nicht mehr allein.
+Der Hund hat den Wecker gefressa, des isch wahr,
+doch mit Hilfe vom Nachbar, wird der Tag wunderbar.
+```
 
